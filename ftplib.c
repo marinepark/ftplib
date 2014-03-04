@@ -957,6 +957,8 @@ GLOBALDEF int FtpClose(netbuf *nData)
 	    FtpClose(nData);
 	}
 	net_close(nData->handle);
+        if(nData->buf)
+          free(nData->buf);
 	free(nData);
 	return 0;
     }
